@@ -1,0 +1,26 @@
+{
+  "pair": {
+    "title": "Connect your UteamUP company",
+    "intro": "Create an API key in UteamUP under Tenant Management, API Keys (not MCP Keys), and paste the key and the secret here. The key's role decides what Homey may see and do.",
+    "baseUrl": "API address",
+    "apiKey": "API key",
+    "apiSecret": "API secret",
+    "connect": "Connect"
+  },
+  "errors": {
+    "auth": "UteamUP rejected the API key or secret. Copy both again; if the secret is lost, create a new key.",
+    "mcpKey": "This key is MCP-enabled. Create a new key from the API Keys tab, not MCP Keys.",
+    "plan": "The company's UteamUP plan is not active yet. API keys need the Premium or Enterprise plan.",
+    "rateLimited": "UteamUP asked Homey to slow down. Try again in a minute.",
+    "connection": "UteamUP could not be reached. Check the API address and the internet connection.",
+    "unknown": "Something went wrong while connecting to UteamUP. Try again.",
+    "invalidUrl": "Enter an API address that starts with https://, for example https://api.uteamup.com.",
+    "missingKey": "Enter both the API key and the API secret.",
+    "wrongTenant": "This key belongs to a different UteamUP company. Use a key from the company this device was paired with.",
+    "reauth": "The UteamUP key was switched off, rotated or has expired. Repair the device and enter a new key.",
+    "forbidden": "The API key's role, or the person who created the key, lacks the permission for this action.",
+    "notFound": "UteamUP could not find that record in this company. Check the GUID.",
+    "invalidAssignee": "Enter a UteamUP user GUID, or leave the field empty.",
+    "liveEventsUnavailable": "Live events need the Enterprise plan and the Webhook.View and Webhook.Manage permissions. The counts still refresh on the interval."
+  }
+}

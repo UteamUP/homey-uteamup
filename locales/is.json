@@ -1,0 +1,26 @@
+{
+  "pair": {
+    "title": "Tengdu UteamUP fyrirtækið þitt",
+    "intro": "Búðu til API-lykil í UteamUP undir Tenant Management, API Keys (ekki MCP Keys), og límdu lykilinn og leyndarmálið hér. Hlutverk lykilsins ræður því hvað Homey má sjá og gera.",
+    "baseUrl": "API-slóð",
+    "apiKey": "API-lykill",
+    "apiSecret": "API-leyndarmál",
+    "connect": "Tengja"
+  },
+  "errors": {
+    "auth": "UteamUP hafnaði API-lyklinum eða leyndarmálinu. Afritaðu hvort tveggja aftur; ef leyndarmálið er glatað skaltu búa til nýjan lykil.",
+    "mcpKey": "Þessi lykill er MCP-lykill. Búðu til nýjan lykil á flipanum API Keys, ekki MCP Keys.",
+    "plan": "Áskrift fyrirtækisins að UteamUP er ekki orðin virk. API-lyklar krefjast Premium eða Enterprise áskriftar.",
+    "rateLimited": "UteamUP bað Homey að hægja á sér. Reyndu aftur eftir mínútu.",
+    "connection": "Ekki náðist samband við UteamUP. Athugaðu API-slóðina og nettenginguna.",
+    "unknown": "Eitthvað fór úrskeiðis við tengingu við UteamUP. Reyndu aftur.",
+    "invalidUrl": "Sláðu inn API-slóð sem byrjar á https://, til dæmis https://api.uteamup.com.",
+    "missingKey": "Sláðu inn bæði API-lykilinn og API-leyndarmálið.",
+    "wrongTenant": "Þessi lykill tilheyrir öðru UteamUP fyrirtæki. Notaðu lykil frá fyrirtækinu sem tækið var parað við.",
+    "reauth": "Slökkt var á UteamUP lyklinum, honum skipt út eða hann rann út. Lagfærðu tækið og sláðu inn nýjan lykil.",
+    "forbidden": "Hlutverk API-lykilsins, eða sá sem bjó lykilinn til, hefur ekki heimild fyrir þessari aðgerð.",
+    "notFound": "UteamUP fann ekki þessa færslu hjá fyrirtækinu. Athugaðu GUID-ið.",
+    "invalidAssignee": "Sláðu inn GUID notanda í UteamUP, eða hafðu reitinn tóman.",
+    "liveEventsUnavailable": "Atburðir í rauntíma krefjast Enterprise áskriftar og heimildanna Webhook.View og Webhook.Manage. Talningarnar uppfærast samt með reglulegu millibili."
+  }
+}

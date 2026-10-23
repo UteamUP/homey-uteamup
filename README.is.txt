@@ -1,0 +1,3 @@
+Færðu viðhaldsvinnuna í UteamUP inn á heimilið eða í bygginguna sem þú stýrir nú þegar með Homey. Sjáðu opnar verkbeiðnir, verkbeiðnir í vinnslu, í bið og fram yfir tíma, ásamt birgða- og IoT-viðvörunum sem lifandi gildi, og láttu Flows bregðast við þegar vinna fer fram yfir tíma eða viðvörun fer í gang.
+
+Flows geta líka tilkynnt vandamál þegar leka- eða reykskynjari fer í gang, stofnað og lokið verkbeiðnum, breytt stöðu þeirra, sett stöðu eignar, keyrt fyrirbyggjandi viðhald og skráð mælaálestur. Þú tengist með API-lykli frá UteamUP fyrirtæki á Premium eða Enterprise áskrift; hlutverk lykilsins ræður því hvað Homey má sjá og gera.
