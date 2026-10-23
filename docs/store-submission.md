@@ -59,8 +59,9 @@ permissions in the README, and revoke it after the review.
 
 ## Steps
 
-Status on 2026-10-23: steps 1–6 are done; 0.1.0 is build 1, on the **Test** channel at
-https://homey.app/a/com.uteamup/test/, with *Automatically Publish after Approval* on.
+Status on 2026-10-23: steps 1–7 are done. 0.1.0 (build 1) was submitted for certification and is
+under review; the test version stays at https://homey.app/a/com.uteamup/test/. *Automatically
+Publish after Approval* is on, so it goes live in the store when Athom approves it.
 
 1. Done. The Athom account is gisli@uteamup.com (Google sign-in); it may publish for Homey Pro.
 2. Done. Webhook `6adb59b9a2ce176b47a51a6b` (query-parameter matching) in Developer Tools →
@@ -70,7 +71,7 @@ https://homey.app/a/com.uteamup/test/, with *Automatically Publish after Approva
    not been possible; Athom tests the app during certification.
 5. `npx homey app validate --level publish` passes.
 6. Done. `HOMEY_HEADLESS=1 npx homey app publish` uploaded build 1 and it was published to Test.
-7. In Developer Tools → Apps → com.uteamup → Build 1, **Submit for certification**. Give Athom a
+7. Done. Submitted for certification in Developer Tools → Apps → com.uteamup → Build 1. Give Athom a
    demo-tenant API key by e-mail from support@uteamup.com if they ask for one.
 8. Review can take up to two weeks. Apply Athom's feedback in this repo, bump the version in
    `.homeycompose/app.json` and add a line to `.homeychangelog.json`, then publish again.
