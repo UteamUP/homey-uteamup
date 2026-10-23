@@ -1,0 +1,38 @@
+{
+  "id": "com.uteamup",
+  "version": "0.1.0",
+  "compatibility": ">=12.3.0",
+  "sdk": 3,
+  "runtime": "nodejs",
+  "platforms": ["local"],
+  "name": {
+    "en": "UteamUP",
+    "is": "UteamUP"
+  },
+  "description": {
+    "en": "Keep maintenance work in step with your home and building",
+    "is": "Haltu viðhaldinu í takt við heimilið og bygginguna"
+  },
+  "category": ["tools"],
+  "tags": {
+    "en": ["maintenance", "work order", "cmms", "facility", "building", "alerts", "meter"],
+    "is": ["viðhald", "verkbeiðni", "fasteign", "bygging", "viðvaranir", "mælir"]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "UteamUP ehf.",
+    "email": "support@uteamup.com"
+  },
+  "brandColor": "#206BB5",
+  "homepage": "https://uteamup.com",
+  "support": "mailto:support@uteamup.com",
+  "source": "https://github.com/UteamUP/homey-uteamup",
+  "bugs": {
+    "url": "https://github.com/UteamUP/homey-uteamup/issues"
+  }
+}
