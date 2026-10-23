@@ -1,0 +1,47 @@
+<form id="uteamup-login" class="homey-form">
+  <p class="homey-form-description" data-i18n="pair.intro"></p>
+  <fieldset class="homey-form-fieldset">
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="base-url" data-i18n="pair.baseUrl"></label>
+      <input class="homey-form-input" id="base-url" type="url" value="https://api.uteamup.com" autocomplete="off" required />
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="api-key" data-i18n="pair.apiKey"></label>
+      <input class="homey-form-input" id="api-key" type="text" autocomplete="off" spellcheck="false" required />
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="api-secret" data-i18n="pair.apiSecret"></label>
+      <input class="homey-form-input" id="api-secret" type="password" autocomplete="off" required />
+    </div>
+  </fieldset>
+  <button class="homey-button-primary-full" id="connect" type="submit" data-i18n="pair.connect"></button>
+</form>
+
+<script type="application/javascript">
+  Homey.setTitle(Homey.__('pair.title'));
+
+  document.getElementById('uteamup-login').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var button = document.getElementById('connect');
+    button.classList.add('is-loading');
+    button.disabled = true;
+
+    Homey.emit('login', {
+      baseUrl: document.getElementById('base-url').value.trim(),
+      apiKey: document.getElementById('api-key').value.trim(),
+      apiSecret: document.getElementById('api-secret').value.trim(),
+    })
+      .then(function (device) {
+        // Pairing creates the device; a repair only stores the new key on the existing one.
+        return device ? Homey.createDevice(device) : null;
+      })
+      .then(function () {
+        Homey.done();
+      })
+      .catch(function (error) {
+        button.classList.remove('is-loading');
+        button.disabled = false;
+        Homey.alert(error.message || error);
+      });
+  });
+</script>

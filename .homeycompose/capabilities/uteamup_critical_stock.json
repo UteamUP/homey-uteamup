@@ -1,0 +1,20 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Critical stock",
+    "is": "Birgðir á þrotum"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Critical stock",
+    "is": "Birgðir á þrotum"
+  },
+  "insightsTitleFalse": {
+    "en": "Stock normal",
+    "is": "Birgðir í lagi"
+  },
+  "icon": "/assets/icon.svg"
+}

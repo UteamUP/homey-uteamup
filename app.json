@@ -1,0 +1,1139 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.uteamup",
+  "version": "0.1.0",
+  "compatibility": ">=12.3.0",
+  "sdk": 3,
+  "runtime": "nodejs",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "UteamUP",
+    "is": "UteamUP"
+  },
+  "description": {
+    "en": "Keep maintenance work in step with your home and building",
+    "is": "Haltu viðhaldinu í takt við heimilið og bygginguna"
+  },
+  "category": [
+    "tools"
+  ],
+  "tags": {
+    "en": [
+      "maintenance",
+      "work order",
+      "cmms",
+      "facility",
+      "building",
+      "alerts",
+      "meter"
+    ],
+    "is": [
+      "viðhald",
+      "verkbeiðni",
+      "fasteign",
+      "bygging",
+      "viðvaranir",
+      "mælir"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "UteamUP ehf.",
+    "email": "support@uteamup.com"
+  },
+  "brandColor": "#206BB5",
+  "homepage": "https://uteamup.com",
+  "support": "mailto:support@uteamup.com",
+  "source": "https://github.com/UteamUP/homey-uteamup",
+  "bugs": {
+    "url": "https://github.com/UteamUP/homey-uteamup/issues"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "event_received",
+        "title": {
+          "en": "An event arrived from UteamUP",
+          "is": "Atburður barst frá UteamUP"
+        },
+        "titleFormatted": {
+          "en": "Event [[event]] arrived from UteamUP",
+          "is": "Atburðurinn [[event]] barst frá UteamUP"
+        },
+        "hint": {
+          "en": "Needs live events. Leave the event empty to react to every event, or enter one such as workorder.created or iot.alert.created.",
+          "is": "Krefst atburða í rauntíma. Hafðu atburðinn tóman til að bregðast við öllum, eða skrifaðu t.d. workorder.created eða iot.alert.created."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "text",
+            "name": "event",
+            "required": false,
+            "title": {
+              "en": "Event",
+              "is": "Atburður"
+            },
+            "placeholder": {
+              "en": "workorder.created",
+              "is": "workorder.created"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "event",
+            "type": "string",
+            "title": {
+              "en": "Event",
+              "is": "Atburður"
+            },
+            "example": "iot.alert.created"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "title": {
+              "en": "Title",
+              "is": "Titill"
+            },
+            "example": "Boiler pressure high"
+          },
+          {
+            "name": "delivery_id",
+            "type": "string",
+            "title": {
+              "en": "Delivery",
+              "is": "Sending"
+            },
+            "example": "d6c1…"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "overdue_changed",
+        "title": {
+          "en": "The number of overdue work orders changed",
+          "is": "Fjöldi verkbeiðna fram yfir tíma breyttist"
+        },
+        "tokens": [
+          {
+            "name": "overdue",
+            "type": "number",
+            "title": {
+              "en": "Overdue",
+              "is": "Fram yfir tíma"
+            },
+            "example": 2
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          }
+        ]
+      },
+      {
+        "id": "iot_alert_started",
+        "title": {
+          "en": "An IoT alert became active",
+          "is": "IoT-viðvörun varð virk"
+        },
+        "tokens": [
+          {
+            "name": "count",
+            "type": "number",
+            "title": {
+              "en": "Alerts",
+              "is": "Viðvaranir"
+            },
+            "example": 1
+          }
+        ],
+        "platforms": [
+          "local"
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          }
+        ]
+      },
+      {
+        "id": "critical_stock_started",
+        "title": {
+          "en": "Stock became critical",
+          "is": "Birgðir urðu á þrotum"
+        },
+        "platforms": [
+          "local"
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "overdue_above",
+        "title": {
+          "en": "Overdue work orders !{{are|are not}} above a number",
+          "is": "Verkbeiðnir fram yfir tíma !{{eru|eru ekki}} fleiri en"
+        },
+        "titleFormatted": {
+          "en": "Overdue work orders !{{are|are not}} above [[count]]",
+          "is": "Verkbeiðnir fram yfir tíma !{{eru|eru ekki}} fleiri en [[count]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "number",
+            "name": "count",
+            "min": 0,
+            "step": 1,
+            "title": {
+              "en": "Number",
+              "is": "Fjöldi"
+            },
+            "placeholder": {
+              "en": "0",
+              "is": "0"
+            }
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "iot_alert_active",
+        "title": {
+          "en": "An IoT alert !{{is|is not}} active",
+          "is": "IoT-viðvörun !{{er|er ekki}} virk"
+        },
+        "platforms": [
+          "local"
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "create_work_order",
+        "title": {
+          "en": "Create a work order",
+          "is": "Stofna verkbeiðni"
+        },
+        "titleFormatted": {
+          "en": "Create work order [[name]] with priority [[priority]], due in [[due_in_days]] days, description [[description]], asset [[asset_guid]], assignee [[assignee_guid]]",
+          "is": "Stofna verkbeiðnina [[name]] með forgang [[priority]], skil eftir [[due_in_days]] daga, lýsing [[description]], eign [[asset_guid]], ábyrgðaraðili [[assignee_guid]]"
+        },
+        "hint": {
+          "en": "Asset and assignee are optional UteamUP GUIDs.",
+          "is": "Eign og ábyrgðaraðili eru valfrjáls GUID úr UteamUP."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "text",
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "is": "Heiti"
+            },
+            "placeholder": {
+              "en": "Check the boiler",
+              "is": "Athuga ketilinn"
+            }
+          },
+          {
+            "type": "number",
+            "name": "priority",
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "title": {
+              "en": "Priority (1–5)",
+              "is": "Forgangur (1–5)"
+            },
+            "placeholder": {
+              "en": "2",
+              "is": "2"
+            }
+          },
+          {
+            "type": "number",
+            "name": "due_in_days",
+            "min": 0,
+            "max": 3650,
+            "step": 1,
+            "title": {
+              "en": "Due in days",
+              "is": "Skiladagur eftir (dagar)"
+            },
+            "placeholder": {
+              "en": "1",
+              "is": "1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "description",
+            "required": false,
+            "title": {
+              "en": "Description",
+              "is": "Lýsing"
+            }
+          },
+          {
+            "type": "text",
+            "name": "asset_guid",
+            "required": false,
+            "title": {
+              "en": "Asset GUID",
+              "is": "GUID eignar"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          },
+          {
+            "type": "text",
+            "name": "assignee_guid",
+            "required": false,
+            "title": {
+              "en": "Assignee GUID",
+              "is": "GUID ábyrgðaraðila"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "work_order_guid",
+            "type": "string",
+            "title": {
+              "en": "Work order GUID",
+              "is": "GUID verkbeiðnar"
+            },
+            "example": "11111111-1111-4111-8111-111111111111"
+          },
+          {
+            "name": "ticket_id",
+            "type": "string",
+            "title": {
+              "en": "Ticket",
+              "is": "Númer"
+            },
+            "example": "WO-42"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "create_quick_report",
+        "title": {
+          "en": "Report a problem",
+          "is": "Tilkynna vandamál"
+        },
+        "titleFormatted": {
+          "en": "Report [[description]] with severity [[severity]] on asset [[asset_guid]], tags [[tags]]",
+          "is": "Tilkynna [[description]] með alvarleika [[severity]] á eign [[asset_guid]], merki [[tags]]"
+        },
+        "hint": {
+          "en": "Creates a quick report in UteamUP, for example when a leak sensor goes off. Tags are comma separated.",
+          "is": "Stofnar flýtitilkynningu í UteamUP, t.d. þegar lekaskynjari fer í gang. Merki eru aðskilin með kommu."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "text",
+            "name": "description",
+            "title": {
+              "en": "Description",
+              "is": "Lýsing"
+            },
+            "placeholder": {
+              "en": "Water detected in the boiler room",
+              "is": "Vatn í ketilherbergi"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "severity",
+            "title": {
+              "en": "Severity",
+              "is": "Alvarleiki"
+            },
+            "values": [
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "is": "Lág"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "is": "Miðlungs"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "is": "Há"
+                }
+              },
+              {
+                "id": "critical",
+                "title": {
+                  "en": "Critical",
+                  "is": "Alvarleg"
+                }
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "asset_guid",
+            "required": false,
+            "title": {
+              "en": "Asset GUID",
+              "is": "GUID eignar"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          },
+          {
+            "type": "text",
+            "name": "tags",
+            "required": false,
+            "title": {
+              "en": "Tags",
+              "is": "Merki"
+            },
+            "placeholder": {
+              "en": "leak, homey",
+              "is": "leki, homey"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "work_order_guid",
+            "type": "string",
+            "title": {
+              "en": "Work order GUID",
+              "is": "GUID verkbeiðnar"
+            },
+            "example": "11111111-1111-4111-8111-111111111111"
+          },
+          {
+            "name": "ticket_id",
+            "type": "string",
+            "title": {
+              "en": "Ticket",
+              "is": "Númer"
+            },
+            "example": "WO-42"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "set_work_order_status",
+        "title": {
+          "en": "Set a work order status",
+          "is": "Breyta stöðu verkbeiðnar"
+        },
+        "titleFormatted": {
+          "en": "Set [[work_order]] to [[status]]",
+          "is": "Setja [[work_order]] í stöðuna [[status]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "autocomplete",
+            "name": "work_order",
+            "title": {
+              "en": "Work order",
+              "is": "Verkbeiðni"
+            },
+            "placeholder": {
+              "en": "Pick or type a work order GUID",
+              "is": "Veldu eða sláðu inn GUID verkbeiðnar"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "is": "Staða"
+            },
+            "values": [
+              {
+                "id": "not_started",
+                "title": {
+                  "en": "Not started",
+                  "is": "Ekki hafin"
+                }
+              },
+              {
+                "id": "pending",
+                "title": {
+                  "en": "Pending",
+                  "is": "Óafgreidd"
+                }
+              },
+              {
+                "id": "in_progress",
+                "title": {
+                  "en": "In progress",
+                  "is": "Í vinnslu"
+                }
+              },
+              {
+                "id": "on_hold",
+                "title": {
+                  "en": "On hold",
+                  "is": "Í bið"
+                }
+              },
+              {
+                "id": "completed",
+                "title": {
+                  "en": "Completed",
+                  "is": "Lokið"
+                }
+              },
+              {
+                "id": "cancelled",
+                "title": {
+                  "en": "Cancelled",
+                  "is": "Hætt við"
+                }
+              }
+            ]
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "complete_work_order",
+        "title": {
+          "en": "Complete a work order",
+          "is": "Ljúka verkbeiðni"
+        },
+        "titleFormatted": {
+          "en": "Complete [[work_order]] with notes [[notes]]",
+          "is": "Ljúka [[work_order]] með athugasemd [[notes]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "autocomplete",
+            "name": "work_order",
+            "title": {
+              "en": "Work order",
+              "is": "Verkbeiðni"
+            },
+            "placeholder": {
+              "en": "Pick or type a work order GUID",
+              "is": "Veldu eða sláðu inn GUID verkbeiðnar"
+            }
+          },
+          {
+            "type": "text",
+            "name": "notes",
+            "required": false,
+            "title": {
+              "en": "Notes",
+              "is": "Athugasemdir"
+            }
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "set_asset_state",
+        "title": {
+          "en": "Set an asset state",
+          "is": "Breyta stöðu eignar"
+        },
+        "titleFormatted": {
+          "en": "Set asset [[asset_guid]] to [[state]] because [[reason]]",
+          "is": "Setja eignina [[asset_guid]] í stöðuna [[state]] vegna [[reason]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "text",
+            "name": "asset_guid",
+            "required": true,
+            "title": {
+              "en": "Asset GUID",
+              "is": "GUID eignar"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "is": "Staða"
+            },
+            "values": [
+              {
+                "id": "online",
+                "title": {
+                  "en": "Online",
+                  "is": "Í gangi"
+                }
+              },
+              {
+                "id": "offline",
+                "title": {
+                  "en": "Offline",
+                  "is": "Úr sambandi"
+                }
+              },
+              {
+                "id": "standby",
+                "title": {
+                  "en": "Standby",
+                  "is": "Í biðstöðu"
+                }
+              },
+              {
+                "id": "under_maintenance",
+                "title": {
+                  "en": "Under maintenance",
+                  "is": "Í viðhaldi"
+                }
+              },
+              {
+                "id": "degraded",
+                "title": {
+                  "en": "Degraded",
+                  "is": "Skert virkni"
+                }
+              },
+              {
+                "id": "lost",
+                "title": {
+                  "en": "Lost",
+                  "is": "Týnt"
+                }
+              },
+              {
+                "id": "stolen",
+                "title": {
+                  "en": "Stolen",
+                  "is": "Stolið"
+                }
+              },
+              {
+                "id": "in_transit",
+                "title": {
+                  "en": "In transit",
+                  "is": "Í flutningi"
+                }
+              },
+              {
+                "id": "in_storage",
+                "title": {
+                  "en": "In storage",
+                  "is": "Í geymslu"
+                }
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "reason",
+            "required": false,
+            "title": {
+              "en": "Reason",
+              "is": "Ástæða"
+            }
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "run_pm_schedule",
+        "title": {
+          "en": "Run preventive maintenance now",
+          "is": "Keyra fyrirbyggjandi viðhald núna"
+        },
+        "titleFormatted": {
+          "en": "Run preventive maintenance schedule [[schedule_guid]]",
+          "is": "Keyra viðhaldsáætlunina [[schedule_guid]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "text",
+            "name": "schedule_guid",
+            "required": true,
+            "title": {
+              "en": "Schedule GUID",
+              "is": "GUID áætlunar"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "work_order_guid",
+            "type": "string",
+            "title": {
+              "en": "Work order GUID",
+              "is": "GUID verkbeiðnar"
+            },
+            "example": "11111111-1111-4111-8111-111111111111"
+          },
+          {
+            "name": "ticket_id",
+            "type": "string",
+            "title": {
+              "en": "Ticket",
+              "is": "Númer"
+            },
+            "example": "WO-42"
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "record_meter_reading",
+        "title": {
+          "en": "Record a meter reading",
+          "is": "Skrá mælaálestur"
+        },
+        "titleFormatted": {
+          "en": "Record [[value]] on meter [[attribute_definition_guid]] of asset [[asset_guid]] with notes [[notes]]",
+          "is": "Skrá [[value]] á mælinn [[attribute_definition_guid]] á eigninni [[asset_guid]] með athugasemd [[notes]]"
+        },
+        "hint": {
+          "en": "Every reading is stored permanently in UteamUP, so keep the Flow interval coarse.",
+          "is": "Hver álestur er geymdur varanlega í UteamUP, svo hafðu bil á milli keyrslna rúmt."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "is": "Gildi"
+            },
+            "placeholder": {
+              "en": "42.5",
+              "is": "42,5"
+            }
+          },
+          {
+            "type": "text",
+            "name": "asset_guid",
+            "required": true,
+            "title": {
+              "en": "Asset GUID",
+              "is": "GUID eignar"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          },
+          {
+            "type": "text",
+            "name": "attribute_definition_guid",
+            "required": true,
+            "title": {
+              "en": "Meter GUID",
+              "is": "GUID mælis"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          },
+          {
+            "type": "text",
+            "name": "notes",
+            "required": false,
+            "title": {
+              "en": "Notes",
+              "is": "Athugasemdir"
+            }
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      },
+      {
+        "id": "append_journal_entry",
+        "title": {
+          "en": "Add a line to a journal",
+          "is": "Bæta línu í dagbók"
+        },
+        "titleFormatted": {
+          "en": "Add [[entry]] to journal [[journal_guid]]",
+          "is": "Bæta [[entry]] í dagbókina [[journal_guid]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=company"
+          },
+          {
+            "type": "text",
+            "name": "journal_guid",
+            "required": true,
+            "title": {
+              "en": "Journal GUID",
+              "is": "GUID dagbókar"
+            },
+            "placeholder": {
+              "en": "00000000-0000-0000-0000-000000000000",
+              "is": "00000000-0000-0000-0000-000000000000"
+            }
+          },
+          {
+            "type": "text",
+            "name": "entry",
+            "title": {
+              "en": "Entry",
+              "is": "Færsla"
+            },
+            "placeholder": {
+              "en": "Filter replaced",
+              "is": "Sía skipt út"
+            }
+          }
+        ],
+        "platforms": [
+          "local"
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "UteamUP company",
+        "is": "UteamUP fyrirtæki"
+      },
+      "class": "service",
+      "capabilities": [
+        "uteamup_open_workorders",
+        "uteamup_in_progress_workorders",
+        "uteamup_on_hold_workorders",
+        "uteamup_overdue_workorders",
+        "uteamup_stock_alerts",
+        "uteamup_critical_stock",
+        "uteamup_iot_alerts",
+        "uteamup_iot_alert_active"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/company/assets/images/small.png",
+        "large": "/drivers/company/assets/images/large.png",
+        "xlarge": "/drivers/company/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Updates",
+            "is": "Uppfærslur"
+          },
+          "children": [
+            {
+              "id": "poll_interval",
+              "type": "number",
+              "label": {
+                "en": "Refresh interval",
+                "is": "Uppfærslutíðni"
+              },
+              "hint": {
+                "en": "How often Homey reads the counts from UteamUP, in seconds.",
+                "is": "Hversu oft Homey les talningarnar frá UteamUP, í sekúndum."
+              },
+              "value": 120,
+              "min": 30,
+              "max": 3600,
+              "units": {
+                "en": "s",
+                "is": "s"
+              }
+            },
+            {
+              "id": "assignee_guid",
+              "type": "text",
+              "label": {
+                "en": "Only work orders assigned to",
+                "is": "Aðeins verkbeiðnir úthlutaðar"
+              },
+              "hint": {
+                "en": "Optional UteamUP user GUID. Work order choices in Flows then list only that person's open work orders.",
+                "is": "Valfrjálst GUID notanda í UteamUP. Verkbeiðnir í Flows sýna þá aðeins opnar verkbeiðnir þess aðila."
+              },
+              "value": ""
+            },
+            {
+              "id": "live_events",
+              "type": "checkbox",
+              "label": {
+                "en": "Receive live events",
+                "is": "Taka á móti atburðum í rauntíma"
+              },
+              "hint": {
+                "en": "UteamUP sends events to Homey as they happen. Needs the Enterprise plan and the Webhook.View and Webhook.Manage permissions.",
+                "is": "UteamUP sendir atburði til Homey um leið og þeir gerast. Krefst Enterprise áskriftar og heimildanna Webhook.View og Webhook.Manage."
+              },
+              "value": true
+            }
+          ]
+        }
+      ],
+      "id": "company"
+    }
+  ],
+  "capabilities": {
+    "uteamup_critical_stock": {
+      "type": "boolean",
+      "title": {
+        "en": "Critical stock",
+        "is": "Birgðir á þrotum"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Critical stock",
+        "is": "Birgðir á þrotum"
+      },
+      "insightsTitleFalse": {
+        "en": "Stock normal",
+        "is": "Birgðir í lagi"
+      },
+      "icon": "/assets/icon.svg"
+    },
+    "uteamup_in_progress_workorders": {
+      "type": "number",
+      "title": {
+        "en": "Work orders in progress",
+        "is": "Verkbeiðnir í vinnslu"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "min": 0,
+      "uiComponent": "sensor",
+      "insights": true,
+      "icon": "/assets/icon.svg"
+    },
+    "uteamup_iot_alert_active": {
+      "type": "boolean",
+      "title": {
+        "en": "IoT alert active",
+        "is": "IoT-viðvörun virk"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "IoT alert",
+        "is": "IoT-viðvörun"
+      },
+      "insightsTitleFalse": {
+        "en": "No IoT alert",
+        "is": "Engin IoT-viðvörun"
+      },
+      "icon": "/assets/icon.svg"
+    },
+    "uteamup_iot_alerts": {
+      "type": "number",
+      "title": {
+        "en": "Unacknowledged IoT alerts",
+        "is": "Óstaðfestar IoT-viðvaranir"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "min": 0,
+      "uiComponent": "sensor",
+      "insights": true,
+      "icon": "/assets/icon.svg"
+    },
+    "uteamup_on_hold_workorders": {
+      "type": "number",
+      "title": {
+        "en": "Work orders on hold",
+        "is": "Verkbeiðnir í bið"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "min": 0,
+      "uiComponent": "sensor",
+      "insights": true,
+      "icon": "/assets/icon.svg"
+    },
+    "uteamup_open_workorders": {
+      "type": "number",
+      "title": {
+        "en": "Open work orders",
+        "is": "Opnar verkbeiðnir"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "min": 0,
+      "uiComponent": "sensor",
+      "insights": true,
+      "icon": "/assets/icon.svg"
+    },
+    "uteamup_overdue_workorders": {
+      "type": "number",
+      "title": {
+        "en": "Overdue work orders",
+        "is": "Verkbeiðnir fram yfir tíma"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "min": 0,
+      "uiComponent": "sensor",
+      "insights": true,
+      "icon": "/assets/icon.svg"
+    },
+    "uteamup_stock_alerts": {
+      "type": "number",
+      "title": {
+        "en": "Stock alerts",
+        "is": "Birgðaviðvaranir"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "min": 0,
+      "uiComponent": "sensor",
+      "insights": true,
+      "icon": "/assets/icon.svg"
+    }
+  }
+}

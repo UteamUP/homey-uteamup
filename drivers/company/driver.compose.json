@@ -1,0 +1,90 @@
+{
+  "name": {
+    "en": "UteamUP company",
+    "is": "UteamUP fyrirtæki"
+  },
+  "class": "service",
+  "capabilities": [
+    "uteamup_open_workorders",
+    "uteamup_in_progress_workorders",
+    "uteamup_on_hold_workorders",
+    "uteamup_overdue_workorders",
+    "uteamup_stock_alerts",
+    "uteamup_critical_stock",
+    "uteamup_iot_alerts",
+    "uteamup_iot_alert_active"
+  ],
+  "platforms": ["local"],
+  "connectivity": ["cloud"],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "login"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login"
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Updates",
+        "is": "Uppfærslur"
+      },
+      "children": [
+        {
+          "id": "poll_interval",
+          "type": "number",
+          "label": {
+            "en": "Refresh interval",
+            "is": "Uppfærslutíðni"
+          },
+          "hint": {
+            "en": "How often Homey reads the counts from UteamUP, in seconds.",
+            "is": "Hversu oft Homey les talningarnar frá UteamUP, í sekúndum."
+          },
+          "value": 120,
+          "min": 30,
+          "max": 3600,
+          "units": {
+            "en": "s",
+            "is": "s"
+          }
+        },
+        {
+          "id": "assignee_guid",
+          "type": "text",
+          "label": {
+            "en": "Only work orders assigned to",
+            "is": "Aðeins verkbeiðnir úthlutaðar"
+          },
+          "hint": {
+            "en": "Optional UteamUP user GUID. Work order choices in Flows then list only that person's open work orders.",
+            "is": "Valfrjálst GUID notanda í UteamUP. Verkbeiðnir í Flows sýna þá aðeins opnar verkbeiðnir þess aðila."
+          },
+          "value": ""
+        },
+        {
+          "id": "live_events",
+          "type": "checkbox",
+          "label": {
+            "en": "Receive live events",
+            "is": "Taka á móti atburðum í rauntíma"
+          },
+          "hint": {
+            "en": "UteamUP sends events to Homey as they happen. Needs the Enterprise plan and the Webhook.View and Webhook.Manage permissions.",
+            "is": "UteamUP sendir atburði til Homey um leið og þeir gerast. Krefst Enterprise áskriftar og heimildanna Webhook.View og Webhook.Manage."
+          },
+          "value": true
+        }
+      ]
+    }
+  ]
+}

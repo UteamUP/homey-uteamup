@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Work orders on hold",
+    "is": "Verkbeiðnir í bið"
+  },
+  "getable": true,
+  "setable": false,
+  "decimals": 0,
+  "min": 0,
+  "uiComponent": "sensor",
+  "insights": true,
+  "icon": "/assets/icon.svg"
+}
