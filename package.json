@@ -9,7 +9,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test test/*.test.js",
     "validate": "homey app validate --level publish",
     "build": "homey app build"
   },

@@ -26,8 +26,8 @@ class CompanyDevice extends Homey.Device {
     this._lastRefresh = 0;
     this._client = this._createClient();
     this._startPolling(this.getSetting('poll_interval'));
-    this.refresh().catch(this.error);
-    if (this.getSetting('live_events') !== false) this._enableLiveEvents().catch(this.error);
+    await this.refresh();
+    if (this.getSetting('live_events') !== false) await this._enableLiveEvents().catch(this.error);
   }
 
   async onUninit() {
