@@ -1,5 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" width="960" height="960">
-  <polygon points="102.4,248.0 480.0,32.2 857.6,248.0 480.0,463.8" fill="#000"/>
-  <polygon points="88.2,272.4 465.8,488.1 465.8,919.6 88.2,703.9" fill="#000"/>
-  <polygon points="871.8,272.4 494.2,488.1 494.2,919.6 871.8,703.9" fill="#000"/>
+  <!-- The UteamUP brand mark in one colour: the three top faces and the three bands of each side. -->
+  <polygon points="473.0,28.1 473.0,241.0 100.4,241.0"/>
+  <polygon points="487.0,28.1 859.6,241.0 487.0,241.0"/>
+  <polygon points="100.4,255.0 859.6,255.0 480.0,471.9"/>
+  <polygon points="81.0,260.1 183.0,318.7 183.0,766.6 81.0,708.0"/>
+  <polygon points="197.0,326.8 299.0,385.4 299.0,833.3 197.0,774.7"/>
+  <polygon points="313.0,393.4 473.0,484.1 473.0,932.0 313.0,841.3"/>
+  <polygon points="879.0,260.1 879.0,708.0 777.0,766.6 777.0,318.7"/>
+  <polygon points="763.0,326.8 763.0,774.7 661.0,833.3 661.0,385.4"/>
+  <polygon points="647.0,393.4 647.0,841.3 487.0,932.0 487.0,484.1"/>
 </svg>
