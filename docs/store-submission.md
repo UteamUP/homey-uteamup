@@ -59,17 +59,19 @@ permissions in the README, and revoke it after the review.
 
 ## Steps
 
-1. **(you)** Sign in at https://tools.developer.homey.app with the UteamUP Athom account (create one
-   with a company e-mail if needed). Use the developer name *UteamUP*.
-2. **(you)** Webhooks → New webhook. Put its ID and secret in `env.json` (copy `env.json.example`).
-   Never commit `env.json`.
-3. **(you)** Create the GitHub repository `UteamUP/homey-uteamup` and push this repo.
-4. **(you)** `npx homey login`, then on a Homey Pro on your network `npx homey app run` and pair a
-   demo company: check the values, one action and one trigger.
-5. `npx homey app validate --level publish` must pass (it does at the time of writing).
-6. **(you)** `npx homey app publish`. It uploads a draft version.
-7. **(you)** In Developer Tools → Apps → UteamUP, publish the draft to **Test** first and try the
-   test link, then **Submit for certification**. Paste the review note and the demo key there.
+Status on 2026-10-23: steps 1–6 are done; 0.1.0 is build 1, on the **Test** channel at
+https://homey.app/a/com.uteamup/test/, with *Automatically Publish after Approval* on.
+
+1. Done. The Athom account is gisli@uteamup.com (Google sign-in); it may publish for Homey Pro.
+2. Done. Webhook `6adb59b9a2ce176b47a51a6b` (query-parameter matching) in Developer Tools →
+   My Webhooks. Its ID and secret are in the local `env.json`, which is never committed.
+3. Done. https://github.com/UteamUP/homey-uteamup (public, like `ha-uteamup`); CI is green.
+4. `npx homey login` is done. No Homey is linked to the account, so `homey app run` on a device has
+   not been possible; Athom tests the app during certification.
+5. `npx homey app validate --level publish` passes.
+6. Done. `HOMEY_HEADLESS=1 npx homey app publish` uploaded build 1 and it was published to Test.
+7. In Developer Tools → Apps → com.uteamup → Build 1, **Submit for certification**. Give Athom a
+   demo-tenant API key by e-mail from support@uteamup.com if they ask for one.
 8. Review can take up to two weeks. Apply Athom's feedback in this repo, bump the version in
    `.homeycompose/app.json` and add a line to `.homeychangelog.json`, then publish again.
 
