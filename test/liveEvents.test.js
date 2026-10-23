@@ -90,7 +90,7 @@ describe('helpers', () => {
   it('builds the forwarder URL with Homey and tenant', () => {
     assert.equal(
       webhookUrl('wh 1', 'homey-1', 'tenant-1'),
-      'https://webhooks.athom.com/webhook/wh%201?homey=homey-1&tenant=tenant-1',
+      'https://webhooks.athom.com/webhook/wh%201/?homey=homey-1&tenant=tenant-1',
     );
   });
 

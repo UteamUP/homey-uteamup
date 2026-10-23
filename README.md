@@ -63,7 +63,7 @@ the permission. Values the key may not read stay empty.
 ## Live events
 
 With **Receive live events** on (the default), each device registers a UteamUP webhook that points
-at Athom's webhook forwarder (`https://webhooks.athom.com/webhook/<id>?homey=<homeyId>&tenant=<guid>`),
+at Athom's webhook forwarder (`https://webhooks.athom.com/webhook/<id>/?homey=<homeyId>&tenant=<guid>`),
 so Homey needs no public address. Each device uses its own random secret.
 
 UteamUP signs every delivery with HMAC-SHA256 over the raw body. The forwarder hands the app a parsed
