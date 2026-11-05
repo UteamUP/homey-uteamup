@@ -206,7 +206,7 @@ class CompanyDevice extends Homey.Device {
       this._refreshSoon();
       return;
     }
-    if (!this._deduper.isNew(delivery.deliveryId)) return;
+    if (!this._deduper.isNew(delivery.deliveryId, delivery.bodyDigest)) return;
     await this.driver.triggerEvent(
       this,
       { event: delivery.event, title: deliveryTitle(delivery.data), delivery_id: delivery.deliveryId },

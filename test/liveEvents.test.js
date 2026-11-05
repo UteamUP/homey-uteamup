@@ -72,6 +72,25 @@ describe('readDelivery', () => {
     const raw = '{"event":"a","data":{"cost":12.50}}';
     assert.equal(readDelivery({ headers: headers(raw), body: JSON.parse(raw) }, SECRET).verified, false);
   });
+
+  it('rejects mismatched event header or excessively nested objects', () => {
+    assert.deepEqual(
+      readDelivery(
+        {
+          headers: { ...headers(UTEAMUP_BODY), 'X-UteamUP-Event': 'test.ping' },
+          body: JSON.parse(UTEAMUP_BODY),
+        },
+        SECRET,
+      ),
+      { verified: false },
+    );
+    let deep = { a: 1 };
+    for (let i = 0; i < 40; i += 1) deep = { child: deep };
+    assert.deepEqual(
+      readDelivery({ headers: headers(UTEAMUP_BODY), body: deep }, SECRET),
+      { verified: false },
+    );
+  });
 });
 
 describe('DeliveryDeduper', () => {
