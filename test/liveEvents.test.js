@@ -90,6 +90,17 @@ describe('readDelivery', () => {
       readDelivery({ headers: headers(UTEAMUP_BODY), body: deep }, SECRET),
       { verified: false },
     );
+    const missingEventRaw = '{"data":{"guid":"11111111-1111-4111-8111-111111111111"}}';
+    assert.deepEqual(
+      readDelivery(
+        {
+          headers: { 'X-UteamUP-Signature': sign(missingEventRaw), 'X-UteamUP-Event': 'test.ping' },
+          body: missingEventRaw,
+        },
+        SECRET,
+      ),
+      { verified: false },
+    );
   });
 });
 
