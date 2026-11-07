@@ -1,8 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Open work orders",
-    "is": "Opnar verkbeiðnir"
+    "en": "Open work orders"
   },
   "getable": true,
   "setable": false,

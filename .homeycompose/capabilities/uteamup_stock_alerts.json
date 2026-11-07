@@ -1,8 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Stock alerts",
-    "is": "Birgðaviðvaranir"
+    "en": "Stock alerts"
   },
   "getable": true,
   "setable": false,

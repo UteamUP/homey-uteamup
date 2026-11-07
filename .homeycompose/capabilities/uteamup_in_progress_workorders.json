@@ -1,8 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Work orders in progress",
-    "is": "Verkbeiðnir í vinnslu"
+    "en": "Work orders in progress"
   },
   "getable": true,
   "setable": false,

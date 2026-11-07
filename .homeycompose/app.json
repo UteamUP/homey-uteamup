@@ -1,22 +1,31 @@
 {
   "id": "com.uteamup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "compatibility": ">=12.3.0",
   "sdk": 3,
   "runtime": "nodejs",
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "name": {
-    "en": "UteamUP",
-    "is": "UteamUP"
+    "en": "UteamUP"
   },
   "description": {
-    "en": "Keep maintenance work in step with your home and building",
-    "is": "Haltu viðhaldinu í takt við heimilið og bygginguna"
+    "en": "Keep maintenance work in step with your home and building"
   },
-  "category": ["tools"],
+  "category": [
+    "tools"
+  ],
   "tags": {
-    "en": ["maintenance", "work order", "cmms", "facility", "building", "alerts", "meter"],
-    "is": ["viðhald", "verkbeiðni", "fasteign", "bygging", "viðvaranir", "mælir"]
+    "en": [
+      "maintenance",
+      "work order",
+      "cmms",
+      "facility",
+      "building",
+      "alerts",
+      "meter"
+    ]
   },
   "permissions": [],
   "images": {

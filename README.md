@@ -101,7 +101,8 @@ npx homey app run                # on a Homey Pro on your network; needs `homey 
 points at a JSON file with `base`, `apiKey` and `secret`. Use the development API, never production.
 It only reads.
 
-Image sources are in `docs/image-sources/`; store texts and the review checklist are in
+The store photograph and its license are credited in `docs/image-sources/app-photo-license.txt`;
+the driver image source is in `docs/image-sources/`. Store texts and the review checklist are in
 `docs/store-submission.md`.
 
 ## License

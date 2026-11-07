@@ -12,7 +12,9 @@ const read = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8')
 const flow = read('drivers/company/driver.flow.compose.json');
 const driver = read('drivers/company/driver.compose.json');
 const app = read('.homeycompose/app.json');
-const locales = { en: read('locales/en.json'), is: read('locales/is.json') };
+const locales = Object.fromEntries(fs.readdirSync(path.join(root, 'locales'))
+  .filter((file) => file.endsWith('.json'))
+  .map((file) => [path.basename(file, '.json'), read(`locales/${file}`)]));
 
 function keys(object, prefix = '') {
   return Object.entries(object).flatMap(([key, value]) => (
@@ -42,7 +44,7 @@ describe('manifest', () => {
     assert.deepEqual(app.permissions, []);
   });
 
-  it('translates every text into Icelandic as well as English', () => {
+  it('publishes complete text only in the locales approved for Homey', () => {
     const texts = [];
     const collect = (value) => {
       if (Array.isArray(value)) value.forEach(collect);
@@ -55,8 +57,12 @@ describe('manifest', () => {
     for (const file of fs.readdirSync(path.join(root, '.homeycompose/capabilities'))) {
       collect(read(`.homeycompose/capabilities/${file}`));
     }
-    for (const text of texts) assert.equal(typeof text.is, 'string', `missing Icelandic for "${text.en}"`);
-    assert.deepEqual(keys(locales.is).sort(), keys(locales.en).sort());
+    assert.deepEqual(Object.keys(locales).sort(), ['en']);
+    for (const text of texts) {
+      assert.deepEqual(Object.keys(text), ['en'], `unapproved locale for "${text.en}"`);
+      assert.ok(text.en.trim(), 'empty English text');
+    }
+    assert.equal(locales.en.pair.apiSecret, 'API secret');
   });
 
   it('has a locale entry for every message key the code uses', () => {

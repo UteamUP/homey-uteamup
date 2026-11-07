@@ -1,26 +1,30 @@
 # Homey App Store submission — UteamUP
 
-Everything Athom asks for, ready to paste. Steps marked **(you)** need the UteamUP Athom account and
-can only be done by a person signed in to it.
+Submission details for the UteamUP Athom account. Homey 0.1.1 includes the signed-event security
+fix in 101ffcc and addresses the three certification issues reported on 2026-10-26.
 
 ## Listing
 
-| Field | English | Icelandic |
-|-------|---------|-----------|
-| App ID | `com.uteamup` | |
-| Name | UteamUP | UteamUP |
-| Description (one line) | Keep maintenance work in step with your home and building | Haltu viðhaldinu í takt við heimilið og bygginguna |
-| Category | Tools | |
-| Brand color | `#206BB5` (UteamUP blue, the cube's right face) | |
-| Readme | `README.txt` | `README.is.txt` |
-| Tags | maintenance, work order, cmms, facility, building, alerts, meter | viðhald, verkbeiðni, fasteign, bygging, viðvaranir, mælir |
-| Homepage | https://uteamup.com | |
-| Support | mailto:support@uteamup.com | |
-| Source | https://github.com/UteamUP/homey-uteamup | |
-| Issues | https://github.com/UteamUP/homey-uteamup/issues | |
-| Platforms | Homey Pro (`local`); Cloud-ready, not enabled | |
-| Permissions | none | |
-| Price | free (connects to a paid UteamUP plan, which the guidelines allow) | |
+| Field | English |
+|-------|---------|
+| App ID | `com.uteamup` |
+| Name | UteamUP |
+| Description (one line) | Keep maintenance work in step with your home and building |
+| Category | Tools |
+| Brand color | `#206BB5` (UteamUP blue, the cube's right face) |
+| Readme | `README.txt` |
+| Tags | maintenance, work order, cmms, facility, building, alerts, meter |
+| Homepage | https://uteamup.com |
+| Support | mailto:support@uteamup.com |
+| Source | https://github.com/UteamUP/homey-uteamup |
+| Issues | https://github.com/UteamUP/homey-uteamup/issues |
+| Platforms | Homey Pro (`local`); Cloud-ready, not enabled |
+| Permissions | none |
+| Price | free (connects to a paid UteamUP plan, which the guidelines allow) |
+
+Athom requested removal of Icelandic for certification. The published manifest, Flow cards,
+pairing text and store readme therefore use English. The API secret label is `API secret`;
+credential values are never used as UI labels.
 
 Check `support@uteamup.com` is a monitored address before submitting.
 
@@ -33,9 +37,11 @@ Check `support@uteamup.com` is a monitored address before submitting.
 | App icon | `assets/icon.svg` | 960×960, transparent, the cube |
 | Driver icon | `drivers/company/assets/icon.svg` | 960×960, transparent, a work order clipboard |
 
-The app image is an illustration (house, leak, work order card, alert bell), not the logo, and
-nothing shows the Homey logo or a Homey device. Sources: `docs/image-sources/*.svg`, rendered with
-headless Chrome and resized with `sips`.
+The app image is a licensed photograph of heating-system maintenance, replacing the rejected
+generic illustration. Source, photographer and Pexels License are recorded in
+`docs/image-sources/app-photo-license.txt`. It contains no Homey device or logo and makes no
+endorsement claim. The driver artwork remains separate, with `docs/image-sources/driver.svg`
+as its source.
 
 ## Privacy note (for the submission form and the store page)
 
@@ -59,9 +65,11 @@ permissions in the README, and revoke it after the review.
 
 ## Steps
 
-Status on 2026-10-23: steps 1–7 are done. 0.1.0 (build 1) was submitted for certification and is
-under review; the test version stays at https://homey.app/a/com.uteamup/test/. *Automatically
-Publish after Approval* is on, so it goes live in the store when Athom approves it.
+Read back on 2026-11-07: 0.1.0 (build 1) was rejected on 2026-10-26 for unsupported Icelandic,
+an incorrect API-secret label and generic app artwork. There is no Live version. The 0.1.1
+submission corrects those issues and retains the signed-event security fix. The Test link is
+https://homey.app/a/com.uteamup/test/. Certification and public availability must be verified
+separately after upload; automatic publication is requested on approval.
 
 1. Done. The Athom account is gisli@uteamup.com (Google sign-in); it may publish for Homey Pro.
 2. Done. Webhook `6adb59b9a2ce176b47a51a6b` (query-parameter matching) in Developer Tools →

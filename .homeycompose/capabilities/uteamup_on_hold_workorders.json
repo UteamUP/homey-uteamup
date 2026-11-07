@@ -1,8 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Work orders on hold",
-    "is": "Verkbeiðnir í bið"
+    "en": "Work orders on hold"
   },
   "getable": true,
   "setable": false,

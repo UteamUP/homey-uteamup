@@ -1,20 +1,17 @@
 {
   "type": "boolean",
   "title": {
-    "en": "IoT alert active",
-    "is": "IoT-viðvörun virk"
+    "en": "IoT alert active"
   },
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",
   "insights": true,
   "insightsTitleTrue": {
-    "en": "IoT alert",
-    "is": "IoT-viðvörun"
+    "en": "IoT alert"
   },
   "insightsTitleFalse": {
-    "en": "No IoT alert",
-    "is": "Engin IoT-viðvörun"
+    "en": "No IoT alert"
   },
   "icon": "/assets/icon.svg"
 }

@@ -3,16 +3,13 @@
     {
       "id": "event_received",
       "title": {
-        "en": "An event arrived from UteamUP",
-        "is": "Atburður barst frá UteamUP"
+        "en": "An event arrived from UteamUP"
       },
       "titleFormatted": {
-        "en": "Event [[event]] arrived from UteamUP",
-        "is": "Atburðurinn [[event]] barst frá UteamUP"
+        "en": "Event [[event]] arrived from UteamUP"
       },
       "hint": {
-        "en": "Needs live events. Leave the event empty to react to every event, or enter one such as workorder.created or iot.alert.created.",
-        "is": "Krefst atburða í rauntíma. Hafðu atburðinn tóman til að bregðast við öllum, eða skrifaðu t.d. workorder.created eða iot.alert.created."
+        "en": "Needs live events. Leave the event empty to react to every event, or enter one such as workorder.created or iot.alert.created."
       },
       "args": [
         {
@@ -20,12 +17,10 @@
           "name": "event",
           "required": false,
           "title": {
-            "en": "Event",
-            "is": "Atburður"
+            "en": "Event"
           },
           "placeholder": {
-            "en": "workorder.created",
-            "is": "workorder.created"
+            "en": "workorder.created"
           }
         }
       ],
@@ -34,8 +29,7 @@
           "name": "event",
           "type": "string",
           "title": {
-            "en": "Event",
-            "is": "Atburður"
+            "en": "Event"
           },
           "example": "iot.alert.created"
         },
@@ -43,8 +37,7 @@
           "name": "title",
           "type": "string",
           "title": {
-            "en": "Title",
-            "is": "Titill"
+            "en": "Title"
           },
           "example": "Boiler pressure high"
         },
@@ -52,8 +45,7 @@
           "name": "delivery_id",
           "type": "string",
           "title": {
-            "en": "Delivery",
-            "is": "Sending"
+            "en": "Delivery"
           },
           "example": "d6c1…"
         }
@@ -65,16 +57,14 @@
     {
       "id": "overdue_changed",
       "title": {
-        "en": "The number of overdue work orders changed",
-        "is": "Fjöldi verkbeiðna fram yfir tíma breyttist"
+        "en": "The number of overdue work orders changed"
       },
       "tokens": [
         {
           "name": "overdue",
           "type": "number",
           "title": {
-            "en": "Overdue",
-            "is": "Fram yfir tíma"
+            "en": "Overdue"
           },
           "example": 2
         }
@@ -86,16 +76,14 @@
     {
       "id": "iot_alert_started",
       "title": {
-        "en": "An IoT alert became active",
-        "is": "IoT-viðvörun varð virk"
+        "en": "An IoT alert became active"
       },
       "tokens": [
         {
           "name": "count",
           "type": "number",
           "title": {
-            "en": "Alerts",
-            "is": "Viðvaranir"
+            "en": "Alerts"
           },
           "example": 1
         }
@@ -107,8 +95,7 @@
     {
       "id": "critical_stock_started",
       "title": {
-        "en": "Stock became critical",
-        "is": "Birgðir urðu á þrotum"
+        "en": "Stock became critical"
       },
       "platforms": [
         "local"
@@ -119,12 +106,10 @@
     {
       "id": "overdue_above",
       "title": {
-        "en": "Overdue work orders !{{are|are not}} above a number",
-        "is": "Verkbeiðnir fram yfir tíma !{{eru|eru ekki}} fleiri en"
+        "en": "Overdue work orders !{{are|are not}} above a number"
       },
       "titleFormatted": {
-        "en": "Overdue work orders !{{are|are not}} above [[count]]",
-        "is": "Verkbeiðnir fram yfir tíma !{{eru|eru ekki}} fleiri en [[count]]"
+        "en": "Overdue work orders !{{are|are not}} above [[count]]"
       },
       "args": [
         {
@@ -133,12 +118,10 @@
           "min": 0,
           "step": 1,
           "title": {
-            "en": "Number",
-            "is": "Fjöldi"
+            "en": "Number"
           },
           "placeholder": {
-            "en": "0",
-            "is": "0"
+            "en": "0"
           }
         }
       ],
@@ -149,8 +132,7 @@
     {
       "id": "iot_alert_active",
       "title": {
-        "en": "An IoT alert !{{is|is not}} active",
-        "is": "IoT-viðvörun !{{er|er ekki}} virk"
+        "en": "An IoT alert !{{is|is not}} active"
       },
       "platforms": [
         "local"
@@ -161,28 +143,23 @@
     {
       "id": "create_work_order",
       "title": {
-        "en": "Create a work order",
-        "is": "Stofna verkbeiðni"
+        "en": "Create a work order"
       },
       "titleFormatted": {
-        "en": "Create work order [[name]] with priority [[priority]], due in [[due_in_days]] days, description [[description]], asset [[asset_guid]], assignee [[assignee_guid]]",
-        "is": "Stofna verkbeiðnina [[name]] með forgang [[priority]], skil eftir [[due_in_days]] daga, lýsing [[description]], eign [[asset_guid]], ábyrgðaraðili [[assignee_guid]]"
+        "en": "Create work order [[name]] with priority [[priority]], due in [[due_in_days]] days, description [[description]], asset [[asset_guid]], assignee [[assignee_guid]]"
       },
       "hint": {
-        "en": "Asset and assignee are optional UteamUP GUIDs.",
-        "is": "Eign og ábyrgðaraðili eru valfrjáls GUID úr UteamUP."
+        "en": "Asset and assignee are optional UteamUP GUIDs."
       },
       "args": [
         {
           "type": "text",
           "name": "name",
           "title": {
-            "en": "Name",
-            "is": "Heiti"
+            "en": "Name"
           },
           "placeholder": {
-            "en": "Check the boiler",
-            "is": "Athuga ketilinn"
+            "en": "Check the boiler"
           }
         },
         {
@@ -192,12 +169,10 @@
           "max": 5,
           "step": 1,
           "title": {
-            "en": "Priority (1–5)",
-            "is": "Forgangur (1–5)"
+            "en": "Priority (1–5)"
           },
           "placeholder": {
-            "en": "2",
-            "is": "2"
+            "en": "2"
           }
         },
         {
@@ -207,12 +182,10 @@
           "max": 3650,
           "step": 1,
           "title": {
-            "en": "Due in days",
-            "is": "Skiladagur eftir (dagar)"
+            "en": "Due in days"
           },
           "placeholder": {
-            "en": "1",
-            "is": "1"
+            "en": "1"
           }
         },
         {
@@ -220,8 +193,7 @@
           "name": "description",
           "required": false,
           "title": {
-            "en": "Description",
-            "is": "Lýsing"
+            "en": "Description"
           }
         },
         {
@@ -229,12 +201,10 @@
           "name": "asset_guid",
           "required": false,
           "title": {
-            "en": "Asset GUID",
-            "is": "GUID eignar"
+            "en": "Asset GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         },
         {
@@ -242,12 +212,10 @@
           "name": "assignee_guid",
           "required": false,
           "title": {
-            "en": "Assignee GUID",
-            "is": "GUID ábyrgðaraðila"
+            "en": "Assignee GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         }
       ],
@@ -256,8 +224,7 @@
           "name": "work_order_guid",
           "type": "string",
           "title": {
-            "en": "Work order GUID",
-            "is": "GUID verkbeiðnar"
+            "en": "Work order GUID"
           },
           "example": "11111111-1111-4111-8111-111111111111"
         },
@@ -265,8 +232,7 @@
           "name": "ticket_id",
           "type": "string",
           "title": {
-            "en": "Ticket",
-            "is": "Númer"
+            "en": "Ticket"
           },
           "example": "WO-42"
         }
@@ -278,64 +244,54 @@
     {
       "id": "create_quick_report",
       "title": {
-        "en": "Report a problem",
-        "is": "Tilkynna vandamál"
+        "en": "Report a problem"
       },
       "titleFormatted": {
-        "en": "Report [[description]] with severity [[severity]] on asset [[asset_guid]], tags [[tags]]",
-        "is": "Tilkynna [[description]] með alvarleika [[severity]] á eign [[asset_guid]], merki [[tags]]"
+        "en": "Report [[description]] with severity [[severity]] on asset [[asset_guid]], tags [[tags]]"
       },
       "hint": {
-        "en": "Creates a quick report in UteamUP, for example when a leak sensor goes off. Tags are comma separated.",
-        "is": "Stofnar flýtitilkynningu í UteamUP, t.d. þegar lekaskynjari fer í gang. Merki eru aðskilin með kommu."
+        "en": "Creates a quick report in UteamUP, for example when a leak sensor goes off. Tags are comma separated."
       },
       "args": [
         {
           "type": "text",
           "name": "description",
           "title": {
-            "en": "Description",
-            "is": "Lýsing"
+            "en": "Description"
           },
           "placeholder": {
-            "en": "Water detected in the boiler room",
-            "is": "Vatn í ketilherbergi"
+            "en": "Water detected in the boiler room"
           }
         },
         {
           "type": "dropdown",
           "name": "severity",
           "title": {
-            "en": "Severity",
-            "is": "Alvarleiki"
+            "en": "Severity"
           },
           "values": [
             {
               "id": "low",
               "title": {
-                "en": "Low",
-                "is": "Lág"
+                "en": "Low"
               }
             },
             {
               "id": "medium",
               "title": {
-                "en": "Medium",
-                "is": "Miðlungs"
+                "en": "Medium"
               }
             },
             {
               "id": "high",
               "title": {
-                "en": "High",
-                "is": "Há"
+                "en": "High"
               }
             },
             {
               "id": "critical",
               "title": {
-                "en": "Critical",
-                "is": "Alvarleg"
+                "en": "Critical"
               }
             }
           ]
@@ -345,12 +301,10 @@
           "name": "asset_guid",
           "required": false,
           "title": {
-            "en": "Asset GUID",
-            "is": "GUID eignar"
+            "en": "Asset GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         },
         {
@@ -358,12 +312,10 @@
           "name": "tags",
           "required": false,
           "title": {
-            "en": "Tags",
-            "is": "Merki"
+            "en": "Tags"
           },
           "placeholder": {
-            "en": "leak, homey",
-            "is": "leki, homey"
+            "en": "leak, homey"
           }
         }
       ],
@@ -372,8 +324,7 @@
           "name": "work_order_guid",
           "type": "string",
           "title": {
-            "en": "Work order GUID",
-            "is": "GUID verkbeiðnar"
+            "en": "Work order GUID"
           },
           "example": "11111111-1111-4111-8111-111111111111"
         },
@@ -381,8 +332,7 @@
           "name": "ticket_id",
           "type": "string",
           "title": {
-            "en": "Ticket",
-            "is": "Númer"
+            "en": "Ticket"
           },
           "example": "WO-42"
         }
@@ -394,74 +344,63 @@
     {
       "id": "set_work_order_status",
       "title": {
-        "en": "Set a work order status",
-        "is": "Breyta stöðu verkbeiðnar"
+        "en": "Set a work order status"
       },
       "titleFormatted": {
-        "en": "Set [[work_order]] to [[status]]",
-        "is": "Setja [[work_order]] í stöðuna [[status]]"
+        "en": "Set [[work_order]] to [[status]]"
       },
       "args": [
         {
           "type": "autocomplete",
           "name": "work_order",
           "title": {
-            "en": "Work order",
-            "is": "Verkbeiðni"
+            "en": "Work order"
           },
           "placeholder": {
-            "en": "Pick or type a work order GUID",
-            "is": "Veldu eða sláðu inn GUID verkbeiðnar"
+            "en": "Pick or type a work order GUID"
           }
         },
         {
           "type": "dropdown",
           "name": "status",
           "title": {
-            "en": "Status",
-            "is": "Staða"
+            "en": "Status"
           },
           "values": [
             {
               "id": "not_started",
               "title": {
-                "en": "Not started",
-                "is": "Ekki hafin"
+                "en": "Not started"
               }
             },
             {
               "id": "pending",
               "title": {
-                "en": "Pending",
-                "is": "Óafgreidd"
+                "en": "Pending"
               }
             },
             {
               "id": "in_progress",
               "title": {
-                "en": "In progress",
-                "is": "Í vinnslu"
+                "en": "In progress"
               }
             },
             {
               "id": "on_hold",
               "title": {
-                "en": "On hold",
-                "is": "Í bið"
+                "en": "On hold"
               }
             },
             {
               "id": "completed",
               "title": {
-                "en": "Completed",
-                "is": "Lokið"
+                "en": "Completed"
               }
             },
             {
               "id": "cancelled",
               "title": {
-                "en": "Cancelled",
-                "is": "Hætt við"
+                "en": "Cancelled"
               }
             }
           ]
@@ -474,24 +413,20 @@
     {
       "id": "complete_work_order",
       "title": {
-        "en": "Complete a work order",
-        "is": "Ljúka verkbeiðni"
+        "en": "Complete a work order"
       },
       "titleFormatted": {
-        "en": "Complete [[work_order]] with notes [[notes]]",
-        "is": "Ljúka [[work_order]] með athugasemd [[notes]]"
+        "en": "Complete [[work_order]] with notes [[notes]]"
       },
       "args": [
         {
           "type": "autocomplete",
           "name": "work_order",
           "title": {
-            "en": "Work order",
-            "is": "Verkbeiðni"
+            "en": "Work order"
           },
           "placeholder": {
-            "en": "Pick or type a work order GUID",
-            "is": "Veldu eða sláðu inn GUID verkbeiðnar"
+            "en": "Pick or type a work order GUID"
           }
         },
         {
@@ -499,8 +434,7 @@
           "name": "notes",
           "required": false,
           "title": {
-            "en": "Notes",
-            "is": "Athugasemdir"
+            "en": "Notes"
           }
         }
       ],
@@ -511,12 +445,10 @@
     {
       "id": "set_asset_state",
       "title": {
-        "en": "Set an asset state",
-        "is": "Breyta stöðu eignar"
+        "en": "Set an asset state"
       },
       "titleFormatted": {
-        "en": "Set asset [[asset_guid]] to [[state]] because [[reason]]",
-        "is": "Setja eignina [[asset_guid]] í stöðuna [[state]] vegna [[reason]]"
+        "en": "Set asset [[asset_guid]] to [[state]] because [[reason]]"
       },
       "args": [
         {
@@ -524,83 +456,71 @@
           "name": "asset_guid",
           "required": true,
           "title": {
-            "en": "Asset GUID",
-            "is": "GUID eignar"
+            "en": "Asset GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         },
         {
           "type": "dropdown",
           "name": "state",
           "title": {
-            "en": "State",
-            "is": "Staða"
+            "en": "State"
           },
           "values": [
             {
               "id": "online",
               "title": {
-                "en": "Online",
-                "is": "Í gangi"
+                "en": "Online"
               }
             },
             {
               "id": "offline",
               "title": {
-                "en": "Offline",
-                "is": "Úr sambandi"
+                "en": "Offline"
               }
             },
             {
               "id": "standby",
               "title": {
-                "en": "Standby",
-                "is": "Í biðstöðu"
+                "en": "Standby"
               }
             },
             {
               "id": "under_maintenance",
               "title": {
-                "en": "Under maintenance",
-                "is": "Í viðhaldi"
+                "en": "Under maintenance"
               }
             },
             {
               "id": "degraded",
               "title": {
-                "en": "Degraded",
-                "is": "Skert virkni"
+                "en": "Degraded"
               }
             },
             {
               "id": "lost",
               "title": {
-                "en": "Lost",
-                "is": "Týnt"
+                "en": "Lost"
               }
             },
             {
               "id": "stolen",
               "title": {
-                "en": "Stolen",
-                "is": "Stolið"
+                "en": "Stolen"
               }
             },
             {
               "id": "in_transit",
               "title": {
-                "en": "In transit",
-                "is": "Í flutningi"
+                "en": "In transit"
               }
             },
             {
               "id": "in_storage",
               "title": {
-                "en": "In storage",
-                "is": "Í geymslu"
+                "en": "In storage"
               }
             }
           ]
@@ -610,8 +530,7 @@
           "name": "reason",
           "required": false,
           "title": {
-            "en": "Reason",
-            "is": "Ástæða"
+            "en": "Reason"
           }
         }
       ],
@@ -622,12 +541,10 @@
     {
       "id": "run_pm_schedule",
       "title": {
-        "en": "Run preventive maintenance now",
-        "is": "Keyra fyrirbyggjandi viðhald núna"
+        "en": "Run preventive maintenance now"
       },
       "titleFormatted": {
-        "en": "Run preventive maintenance schedule [[schedule_guid]]",
-        "is": "Keyra viðhaldsáætlunina [[schedule_guid]]"
+        "en": "Run preventive maintenance schedule [[schedule_guid]]"
       },
       "args": [
         {
@@ -635,12 +552,10 @@
           "name": "schedule_guid",
           "required": true,
           "title": {
-            "en": "Schedule GUID",
-            "is": "GUID áætlunar"
+            "en": "Schedule GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         }
       ],
@@ -649,8 +564,7 @@
           "name": "work_order_guid",
           "type": "string",
           "title": {
-            "en": "Work order GUID",
-            "is": "GUID verkbeiðnar"
+            "en": "Work order GUID"
           },
           "example": "11111111-1111-4111-8111-111111111111"
         },
@@ -658,8 +572,7 @@
           "name": "ticket_id",
           "type": "string",
           "title": {
-            "en": "Ticket",
-            "is": "Númer"
+            "en": "Ticket"
           },
           "example": "WO-42"
         }
@@ -671,28 +584,23 @@
     {
       "id": "record_meter_reading",
       "title": {
-        "en": "Record a meter reading",
-        "is": "Skrá mælaálestur"
+        "en": "Record a meter reading"
       },
       "titleFormatted": {
-        "en": "Record [[value]] on meter [[attribute_definition_guid]] of asset [[asset_guid]] with notes [[notes]]",
-        "is": "Skrá [[value]] á mælinn [[attribute_definition_guid]] á eigninni [[asset_guid]] með athugasemd [[notes]]"
+        "en": "Record [[value]] on meter [[attribute_definition_guid]] of asset [[asset_guid]] with notes [[notes]]"
       },
       "hint": {
-        "en": "Every reading is stored permanently in UteamUP, so keep the Flow interval coarse.",
-        "is": "Hver álestur er geymdur varanlega í UteamUP, svo hafðu bil á milli keyrslna rúmt."
+        "en": "Every reading is stored permanently in UteamUP, so keep the Flow interval coarse."
       },
       "args": [
         {
           "type": "number",
           "name": "value",
           "title": {
-            "en": "Value",
-            "is": "Gildi"
+            "en": "Value"
           },
           "placeholder": {
-            "en": "42.5",
-            "is": "42,5"
+            "en": "42.5"
           }
         },
         {
@@ -700,12 +608,10 @@
           "name": "asset_guid",
           "required": true,
           "title": {
-            "en": "Asset GUID",
-            "is": "GUID eignar"
+            "en": "Asset GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         },
         {
@@ -713,12 +619,10 @@
           "name": "attribute_definition_guid",
           "required": true,
           "title": {
-            "en": "Meter GUID",
-            "is": "GUID mælis"
+            "en": "Meter GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         },
         {
@@ -726,8 +630,7 @@
           "name": "notes",
           "required": false,
           "title": {
-            "en": "Notes",
-            "is": "Athugasemdir"
+            "en": "Notes"
           }
         }
       ],
@@ -738,12 +641,10 @@
     {
       "id": "append_journal_entry",
       "title": {
-        "en": "Add a line to a journal",
-        "is": "Bæta línu í dagbók"
+        "en": "Add a line to a journal"
       },
       "titleFormatted": {
-        "en": "Add [[entry]] to journal [[journal_guid]]",
-        "is": "Bæta [[entry]] í dagbókina [[journal_guid]]"
+        "en": "Add [[entry]] to journal [[journal_guid]]"
       },
       "args": [
         {
@@ -751,24 +652,20 @@
           "name": "journal_guid",
           "required": true,
           "title": {
-            "en": "Journal GUID",
-            "is": "GUID dagbókar"
+            "en": "Journal GUID"
           },
           "placeholder": {
-            "en": "00000000-0000-0000-0000-000000000000",
-            "is": "00000000-0000-0000-0000-000000000000"
+            "en": "00000000-0000-0000-0000-000000000000"
           }
         },
         {
           "type": "text",
           "name": "entry",
           "title": {
-            "en": "Entry",
-            "is": "Færsla"
+            "en": "Entry"
           },
           "placeholder": {
-            "en": "Filter replaced",
-            "is": "Sía skipt út"
+            "en": "Filter replaced"
           }
         }
       ],

@@ -1,8 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Overdue work orders",
-    "is": "Verkbeiðnir fram yfir tíma"
+    "en": "Overdue work orders"
   },
   "getable": true,
   "setable": false,

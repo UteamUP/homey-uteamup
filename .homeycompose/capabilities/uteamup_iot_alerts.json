@@ -1,8 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Unacknowledged IoT alerts",
-    "is": "Óstaðfestar IoT-viðvaranir"
+    "en": "Unacknowledged IoT alerts"
   },
   "getable": true,
   "setable": false,
