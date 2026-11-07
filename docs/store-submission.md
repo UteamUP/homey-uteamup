@@ -71,6 +71,13 @@ submission corrects those issues and retains the signed-event security fix. The 
 https://homey.app/a/com.uteamup/test/. Certification and public availability must be verified
 separately after upload; automatic publication is requested on approval.
 
+0.1.1 was uploaded from b1e276d as build 2 on 2026-11-07. Athom API readback confirms the Test
+channel selects build 2 / 0.1.1 and its certification state is `in_review`; `autoRelease: true`
+was supplied when creating the submission. There is still no Live version. Local verification
+passed 86 unit tests with zero failures; the separate opt-in development API integration test
+was skipped because no live test key was supplied. Both `publish` and `verified` validators
+passed. These measured counts supersede the 91-test count in b1e276d's commit description.
+
 1. Done. The Athom account is gisli@uteamup.com (Google sign-in); it may publish for Homey Pro.
 2. Done. Webhook `6adb59b9a2ce176b47a51a6b` (query-parameter matching) in Developer Tools →
    My Webhooks. Its ID and secret are in the local `env.json`, which is never committed.
