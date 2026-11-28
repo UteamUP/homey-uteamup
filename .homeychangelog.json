@@ -4,5 +4,8 @@
   },
   "0.1.1": {
     "en": "Secure live-event verification and replay protection. Updated store image and English text for Homey certification."
+  },
+  "0.1.2": {
+    "en": "Refuse webhook deliveries outside a ten minute freshness window."
   }
 }
