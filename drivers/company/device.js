@@ -203,6 +203,7 @@ class CompanyDevice extends Homey.Device {
     const delivery = readDelivery(message, this.getStoreValue('webhookSecret'));
     if (!delivery.verified) {
       // Unverified data never reaches a Flow; at most it makes Homey re-read UteamUP itself.
+      this.log('Refused a UteamUP webhook delivery:', delivery.reason);
       this._refreshSoon();
       return;
     }
