@@ -197,7 +197,7 @@ describe('live events', () => {
     const secret = 'e'.repeat(64);
     const { device, driver } = makeDevice({ store: { webhookSecret: secret } });
     await init(device);
-    const raw = '{"event":"iot.alert.created","data":{"title":"Boiler pressure high"}}';
+    const raw = `{"event":"iot.alert.created","timestamp":"${new Date().toISOString()}","data":{"title":"Boiler pressure high"}}`;
     const message = {
       headers: {
         'x-uteamup-signature': `sha256=${crypto.createHmac('sha256', secret).update(raw).digest('hex')}`,
@@ -212,6 +212,22 @@ describe('live events', () => {
       { event: 'iot.alert.created', title: 'Boiler pressure high', delivery_id: 'd-7' },
       { event: 'iot.alert.created' },
     ]]);
+  });
+
+  it('never fires a Flow for a captured delivery that is outside the freshness window', async () => {
+    const secret = 'e'.repeat(64);
+    const { device, driver } = makeDevice({ store: { webhookSecret: secret } });
+    await init(device);
+    const old = new Date(Date.now() - 11 * 60 * 1000).toISOString();
+    const raw = `{"event":"iot.alert.created","timestamp":"${old}","data":{"title":"Boiler pressure high"}}`;
+    await device.handleDelivery({
+      headers: {
+        'x-uteamup-signature': `sha256=${crypto.createHmac('sha256', secret).update(raw).digest('hex')}`,
+        'x-uteamup-delivery': 'd-8',
+      },
+      body: JSON.parse(raw),
+    });
+    assert.deepEqual(driver.fired, []);
   });
 
   it('never fires a Flow for a forged delivery, and only refreshes through the API', async () => {
